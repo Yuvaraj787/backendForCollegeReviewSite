@@ -148,6 +148,6 @@ app.post("/getansid",(req,res)=>{
     }
   })
 })
-app.listen(5000 || process.env.PORT,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("server is running boss on port 5000");
 })
