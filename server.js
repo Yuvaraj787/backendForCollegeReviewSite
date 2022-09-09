@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
+app.use(cors({
+    origin: ['https://www.section.io', 'https://www.google.com/']
+}));
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended:true}));
 const pg = require('pg');
@@ -36,7 +40,7 @@ app.post("/createUser",(req,res)=>{
   [userId,username,currentStatus,institute,classs,password,[],[]],(err)=>{
     if (err) {console.log("error in posting:"+err.message);}
     else {console.log("added successfully")
-    res.redirect("http://localhost:3000/login");}
+    res.redirect("https://college-review-site.vercel.app");}
   })
 })
 app.route("/questions")
@@ -48,7 +52,7 @@ app.route("/questions")
     else {
      console.log("Succesfully added the questions");
   add_qn_to_user_table(qnid,byName);
-  res.redirect("http://localhost:3000/")
+  res.redirect("https://college-review-site.vercel.app/")
      }
   })
 })
@@ -94,7 +98,7 @@ app.route("/answers")
     else {
       add_ans_to_user_and_qn_table(qnId,ansId,byName);
       console.log("added in answer table");
-      res.redirect('http://localhost:3000/')
+      res.redirect('https://college-review-site.vercel.app/')
   }
   });
 })
@@ -144,6 +148,6 @@ app.post("/getansid",(req,res)=>{
     }
   })
 })
-app.listen(5000,()=>{
+app.listen(5000 || process.env.PORT,()=>{
     console.log("server is running boss on port 5000");
 })
