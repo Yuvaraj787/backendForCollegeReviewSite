@@ -40,7 +40,7 @@ app.post("/createUser",(req,res)=>{
   [userId,username,currentStatus,institute,classs,password,[],[]],(err)=>{
     if (err) {console.log("error in posting:"+err.message);}
     else {console.log("added successfully")
-    res.redirect("https://college-review-site.vercel.app");}
+    res.redirect("https://college-review-site.vercel.app/login");}
   })
 })
 app.route("/questions")
