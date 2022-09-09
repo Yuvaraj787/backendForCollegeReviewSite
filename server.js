@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 app.use(cors({
-    origin: ['https://www.section.io', 'https://www.google.com/']
+    origin:'https://college-review-site.vercel.app/'
 }));
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended:true}));
