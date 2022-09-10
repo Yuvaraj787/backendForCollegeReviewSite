@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 app.use(cors({
-    origin:'*'
+    origin:'*',
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
 }));
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended:true}));
